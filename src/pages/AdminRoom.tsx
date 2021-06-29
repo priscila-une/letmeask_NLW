@@ -8,23 +8,24 @@ import answerImg from '../assets/images/answer.svg';
 import { Button } from '../components/Button';
 import { Question } from '../components/Questions';
 import { RoomCode } from '../components/RoomCode';
-//import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
+import { useTheme } from '../hooks/useTheme';
+import { ThemeSwitcher } from '../components/ThemeSwitcher';
 
 type RoomParams = {
     id: string;
 }
 
 export function AdminRoom(){
-    //const {user} = useAuth();
     const params = useParams<RoomParams>();
     const roomId = params.id;
     const history = useHistory();
     
     const { title, questions } = useRoom(roomId)
+    const { theme } = useTheme();
 
    
     async function handleEndRoom(){
@@ -55,10 +56,13 @@ export function AdminRoom(){
 
 
     return(
-        <div id="page-room">
+        <div id="page-room" className={theme}>
             <header>
                 <div className="content">
+                    <div className="logo">
                     <img src={logoImg} alt="Letmeask" />
+                    <ThemeSwitcher />
+                    </div>
                     <div>
                         <RoomCode code={roomId}/>
                         <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>

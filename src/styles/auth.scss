@@ -4,6 +4,16 @@
     height: 100vh;
 
 
+    &.light {
+        --background: #eceaf3;
+        --text-color: #111113;
+    }
+
+    &.dark {
+        --background: #121212;
+        --text-color: #FFFFFF;
+    }
+
     aside{
         flex: 7;
         background: #835afc;
@@ -35,13 +45,14 @@
 
     main{
         flex: 8;
-
+        background: var(--background);
         padding: 0 32px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
+    
     .main-content {
         display: flex;
         flex-direction: column;
@@ -52,12 +63,14 @@
     
         > img{
             align-self: center;
+        
         }
 
         h2{
             font-size: 24px;
             margin: 64px 0 24px;
             font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
         }
 
         form {

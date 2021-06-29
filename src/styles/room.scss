@@ -1,7 +1,25 @@
 #page-room{
+
+    &.light {
+        --background: #F8F8F8;
+        --header-border: #e2e2e2;
+        --text-color: #29292e;
+    }
+
+    &.dark {
+        --background: #121212;
+        --textarea-background: #2c2929;
+        --header-border: #202020;
+        --text-color: #FFFFFF;
+    }
+
+    background: var(--background);
+
+
+
     header{
         padding: 24px;
-        border-bottom: 1px solid #e2e2e2;
+        border-bottom: 1px solid var(--header-border);
 
         .content{
             max-width: 1120px;
@@ -37,7 +55,7 @@
             h1{
                 font-family: 'Poppins', sans-serif;
                 font-size: 24px;
-                color: #29292e;
+                color: var(--text-color)
             }
 
             span{
@@ -57,7 +75,8 @@
                 border: 0;
                 padding: 16px;
                 border-radius: 8px;
-                background: #fefefe;
+                background: var(--textarea-background);
+                color: var(--text-color);
                 box-shadow: 0 2px 12px rgba(0,0,0, 0.04);
                 resize: vertical;
                 min-height: 130px;
